@@ -6,6 +6,7 @@
 <title>A Rao — Resume</title>
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="description" content="A Rao — engineering leader in cybersecurity, post-quantum cryptography, embedded and cyber-physical systems. Detailed resume.">
+<script>if ("IntersectionObserver" in window) document.documentElement.classList.add("js");</script>
 <style>
   :root {
     color-scheme: dark;
@@ -24,14 +25,18 @@
     color: var(--text);
     font: 16px/1.55 Calibri, "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   }
-  main { max-width: 860px; min-height: 100vh; margin: 0 auto; padding: 32px 16px 64px; background: var(--bg); }
+  main {
+    max-width: 860px; min-height: 100vh; margin: 0 auto; padding: 32px 16px 64px;
+    background: var(--bg);
+    box-shadow: 0 0 0 1px #22272d, 0 0 80px rgba(138, 180, 232, .07);
+  }
   header h1 { margin: 0; font-size: 1.9rem; letter-spacing: .01em; }
   .contact { color: var(--muted); margin: 4px 0 0; }
   a { color: var(--accent); overflow-wrap: anywhere; }
   h2 {
     margin: 36px 0 10px;
     padding-bottom: 4px;
-    border-bottom: 2px solid var(--accent);
+    position: relative;
     color: var(--accent);
     font-size: 1.05rem;
     letter-spacing: .08em;
@@ -50,6 +55,23 @@
   .tags li { margin: 0; background: var(--tag-bg); border-radius: 4px; padding: 1px 8px; font-size: .92rem; }
   ol.highlights { padding-left: 1.4em; }
   footer { margin-top: 40px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--rule); padding-top: 10px; }
+  h2::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), rgba(138, 180, 232, .15));
+    transform-origin: left;
+  }
+  a { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .25s ease; }
+  a:hover, a:focus-visible { background-size: 100% 1px; }
+  p a, li a { background-size: 100% 1px; opacity: .95; }
+  p a:hover, li a:hover { opacity: 1; }
+  /* Scroll reveal: only when JS is on and the viewer allows motion */
+  @media (prefers-reduced-motion: no-preference) {
+    .js main > header, .js section { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .js h2::after { transform: scaleX(0); transition: transform .8s cubic-bezier(.2, .7, .2, 1) .15s; }
+    .js .in { opacity: 1; transform: none; }
+    .js .in h2::after { transform: scaleX(1); }
+  }
+  @media print { .js main > header, .js section { opacity: 1; transform: none; } .js h2::after { transform: none; } }
 </style>
 </head>
 <body>
@@ -375,5 +397,15 @@
 </footer>
 
 </main>
+<script>
+(function () {
+  var root = document.documentElement;
+  if (!root.classList.contains("js")) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll("main > header, section").forEach(function (el) { io.observe(el); });
+})();
+</script>
 </body>
 </html>
