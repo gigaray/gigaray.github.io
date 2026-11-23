@@ -8,39 +8,23 @@
 <meta name="description" content="A Rao — engineering leader in cybersecurity, post-quantum cryptography, embedded and cyber-physical systems. Detailed resume.">
 <style>
   :root {
-    --bg: #ffffff;
-    --text: #1d1d1f;
-    --muted: #5a5a60;
-    --accent: #1f4e79;
-    --rule: #d9d9de;
-    --tag-bg: #eef2f7;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #16171a;
-      --text: #e6e6ea;
-      --muted: #a2a2ab;
-      --accent: #8ab4e8;
-      --rule: #33343a;
-      --tag-bg: #23262d;
-    }
-  }
-  :root[data-theme="dark"] {
-    --bg: #16171a;
-    --text: #e6e6ea;
-    --muted: #a2a2ab;
-    --accent: #8ab4e8;
-    --rule: #33343a;
-    --tag-bg: #23262d;
+    color-scheme: dark;
+    --side: #000000;
+    --bg: #383729;
+    --text: #c9c22e;
+    --muted: #a9a35a;
+    --accent: #e8e06a;
+    --rule: #5c5a3c;
+    --tag-bg: #4a4933;
   }
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    background: var(--bg);
+    background: var(--side);
     color: var(--text);
     font: 16px/1.55 Calibri, "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   }
-  main { max-width: 860px; margin: 0 auto; padding: 32px 16px 64px; }
+  main { max-width: 860px; min-height: 100vh; margin: 0 auto; padding: 32px 16px 64px; background: var(--bg); }
   header h1 { margin: 0; font-size: 1.9rem; letter-spacing: .01em; }
   .contact { color: var(--muted); margin: 4px 0 0; }
   a { color: var(--accent); overflow-wrap: anywhere; }
