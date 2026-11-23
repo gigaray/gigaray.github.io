@@ -1,0 +1,33 @@
+# Search engines may crawl this site so they can see the page's "noindex" tag
+# and keep it out of search results. (Blocking them here would hide that tag,
+# and the bare URL could still be listed.)
+User-agent: *
+Allow: /
+
+# Block AI-training and dataset crawlers entirely.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
